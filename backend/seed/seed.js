@@ -3,8 +3,10 @@ import mongoose from 'mongoose';
 import faker  from 'faker'; // ok if you have faker@5.*? see notes below
 import Claim from '../models/Claim.js';
 import ClaimEvent from '../models/ClaimEvent.js';
+import 'dotenv/config'
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/abacus';
+const uri = process.env.MONGO_URI;
+// console.log('Using MONGO_URI:', uri);
 
 // --- Compatibility helpers (work across faker versions) ---
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -71,7 +73,7 @@ const randomPastDateDays = (daysMax) => {
 async function connectDB() {
   try {
     mongoose.set('strictQuery', false);
-    await mongoose.connect(MONGO_URI, {
+    await mongoose.connect(uri, {
       serverSelectionTimeoutMS: 10000,
       socketTimeoutMS: 45000,
       maxPoolSize: 10
@@ -127,6 +129,7 @@ async function seed() {
     }
 
     const created = await Claim.insertMany(claims);
+    // console.log(claims);
 
     const events = [];
     for (let i = 0; i < Math.min(20, created.length); i++) {
@@ -139,6 +142,7 @@ async function seed() {
       });
     }
     await ClaimEvent.insertMany(events);
+    // console.log(events);
     console.log('Seed complete');
   } catch (err) {
     console.error('Seed failed:', err);
