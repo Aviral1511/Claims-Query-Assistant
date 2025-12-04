@@ -1,13 +1,9 @@
-import mongoose from 'mongoose';
 import faker from 'faker';
 import Claim from './models/Claim.js';
 import ClaimEvent from './models/ClaimEvent.js';
 
-const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/claimsdb';
 
 async function seed(){
-  await mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
-  console.log('Connected to mongo for seeding');
   await Claim.deleteMany({});
   await ClaimEvent.deleteMany({});
   const statuses = ['submitted','in_review','approved','denied','paid'];
