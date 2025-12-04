@@ -5,6 +5,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import queryRoutes from './routes/queryRoutes.js';
 import claimRoutes from './routes/claimRoutes.js';
+import rephraseRoutes from './routes/rephraseRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
 
 dotenv.config();
 
@@ -41,6 +43,8 @@ const connectDB = async () => {
 
 app.use('/api/query', queryRoutes);
 app.use('/api/claims', claimRoutes);
+app.use('/api/rephrase', rephraseRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.get('/', (req,res)=> res.json({ ok: true, msg:'Claims API running' }));
 

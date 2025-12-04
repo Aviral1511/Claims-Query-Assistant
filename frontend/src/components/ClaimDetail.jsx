@@ -10,7 +10,7 @@ export default function ClaimDetail({ payload, onClose }) {
                     <h3 className="text-xl font-semibold">{claim.claim_number} — {claim.patient_name}</h3>
                     <div className="text-sm text-gray-600">{claim.status} • ₹{claim.amount}</div>
                 </div>
-                <button onClick={onClose} className="text-sm text-blue-600">Close</button>
+                <button onClick={onClose} className="text-sm text-blue-600 cursor-pointer">Close</button>
             </div>
             <div className="mt-3">
                 <p><strong>Policy:</strong> {claim.policy_number}</p>
