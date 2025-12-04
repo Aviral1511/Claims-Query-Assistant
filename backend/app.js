@@ -2,8 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
 import cors from 'cors';
-import queryRoutes from './routes/query.js';
-import claimRoutes from './routes/claims.js';
+import queryRoutes from './routes/queryRoutes.js';
+import claimRoutes from './routes/claimRoutes.js';
 
 const app = express();
 app.use(cors());
