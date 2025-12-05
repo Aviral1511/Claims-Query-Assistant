@@ -7,6 +7,7 @@ import queryRoutes from './routes/queryRoutes.js';
 import claimRoutes from './routes/claimRoutes.js';
 import rephraseRoutes from './routes/rephraseRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import queryRagRoutes from './routes/queryRagRoutes.js';
 
 dotenv.config();
 
@@ -45,6 +46,7 @@ app.use('/api/query', queryRoutes);
 app.use('/api/claims', claimRoutes);
 app.use('/api/rephrase', rephraseRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/query-rag', queryRagRoutes);
 
 app.get('/', (req,res)=> res.json({ ok: true, msg:'Claims API running' }));
 
