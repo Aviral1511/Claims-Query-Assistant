@@ -32,6 +32,18 @@ const headers = [
   'provider'
 ];
 
+const denialReasons = [
+  { code: 'D01', reason: 'Insufficient coverage' },
+  { code: 'D02', reason: 'Incomplete documentation' },
+  { code: 'D03', reason: 'Service not covered' },
+  { code: 'D04', reason: 'Exceeded policy limits' },
+  { code: 'D05', reason: 'Incorrect diagnosis coding' },
+  { code: 'D06', reason: 'Late submission beyond allowed period' },
+  { code: 'D07', reason: 'Duplicate claim submission' },
+  { code: 'D08', reason: 'Provider not authorized' }
+];
+
+
 function randomFrom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -50,7 +62,7 @@ const providers = ['City Hospital', 'Sunrise Clinic', 'HealthPlus Center', 'Gree
 const lines = [];
 lines.push(headers.join(',')); // header row
 
-const N = 2000; // how many mock rows you want
+const N = 3000; // how many mock rows you want
 
 for (let i = 1; i <= N; i++) {
   const claimNumber = `CLM-${1000 + i}`;
@@ -64,9 +76,11 @@ for (let i = 1; i <= N; i++) {
   let denialReason = '';
 
   if (status === 'DENIED') {
-    denialCode = 'D01';
-    denialReason = 'Insufficient coverage';
+    const chosen = randomFrom(denialReasons);
+    denialCode = chosen.code;
+    denialReason = chosen.reason;
   }
+
 
   const row = [
     claimNumber,

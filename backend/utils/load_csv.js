@@ -28,7 +28,7 @@ async function main(){
   console.log('Connected. Records to ingest:', records.length);
 
   // Optionally: clear existing claims (uncomment if desired)
-  // await Claim.deleteMany({});
+  await Claim.deleteMany({});
 
   const bulkOps = [];
   for (const rec of records) {
