@@ -1,9 +1,5 @@
 /**
  * index_claims_rag.js
- * Usage (inside backend):
- *   OPENAI_API_KEY=... node src/index_claims_rag.js [limit]
- * Example:
- *   node src/index_claims_rag.js 1500
  */
 
 import mongoose from 'mongoose';
