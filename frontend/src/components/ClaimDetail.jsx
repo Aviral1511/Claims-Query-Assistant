@@ -82,7 +82,7 @@ export default function ClaimDetail({ payload, onClose }) {
 
                 <button
                     onClick={onClose}
-                    className="text-xs sm:text-sm px-3 py-1.5 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors"
+                    className="text-xs sm:text-sm px-3 py-1.5 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
                 >
                     ✕ Close
                 </button>

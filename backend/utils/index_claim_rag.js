@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const MONGO = process.env.MONGO_URI;
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyDNDkdKb_c_7eRinUh3uRuvRrov1ueJlas';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = 'gemini-embedding-001';
 const LIMIT = 100; // max claims to index
 

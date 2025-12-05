@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 const connectDB = async () => {
-    const uri = process.env.MONGO_URI; // e.g. mongodb+srv://user:pass@cluster.yourid.mongodb.net/driver_sentiment?retryWrites=true&w=majority
+    const uri = process.env.MONGO_URI; 
 
   if (!uri) {
     throw new Error('MONGO_URL is missing in environment');

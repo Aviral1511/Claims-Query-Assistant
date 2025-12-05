@@ -6,7 +6,7 @@ import Claim from '../models/Claim.js';
 
 const router = express.Router();
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyDNDkdKb_c_7eRinUh3uRuvRrov1ueJlas';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = 'gemini-embedding-001';
 
 if (!GEMINI_API_KEY) {
